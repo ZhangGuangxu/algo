@@ -2,7 +2,7 @@ package heap_sort
 
 // in-place
 // unstable
-// time: 最好O(nlogn)，最坏O(nlogn)，平均O(nlogn)
+// time: 最好O(n*logn)，最坏O(n*logn)，平均O(n*logn)
 // space: O(1)
 func Sort(a []int) {
 	if len(a) < 2 {
