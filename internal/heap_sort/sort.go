@@ -2,33 +2,39 @@ package heap_sort
 
 // in-place
 // unstable
-// time: 最好O(n*logn)，最坏O(n*logn)，平均O(n*logn)
-// space: O(1)
+// 时间复杂度: 
+//   最优：O(n*logn)
+//   最差：O(n*logn)
+//   平均：O(n*logn)
+// 空间复杂度: O(1)
 func Sort(a []int) {
-	if len(a) < 2 {
+	l := len(a)
+	if l < 2 {
 		return
 	}
-	for i := len(a)/2; i >= 0; i-- {
-		heapAdjust(a, i, len(a)-1)
+	for i := l/2-1; i >= 0; i-- {
+		heapAdjust(a, i, l-1)
 	}
-	for i := len(a)-1; i > 0; i-- {
+	for i := l-1; i > 0; i-- {
 		a[0], a[i] = a[i], a[0]
 		heapAdjust(a, 0, i-1)
 	}
 }
 
-func heapAdjust(a []int, start, end int) {
-	temp := a[start]
-	top := start
-	for i := 2*top+1; i <= end; i = 2*top+1 {
-		if i < end && a[i] < a[i+1] {
-			i++
+func heapAdjust(a []int, s, e int) {
+	temp := a[s]
+	i := s
+	j := 2*i+1
+	for i < e && j <= e {
+		if j+1 <= e && a[j+1] > a[j] {
+			j++
 		}
-		if temp > a[i] {
+		if temp >= a[j] {
 			break
 		}
-		a[top] = a[i]
-		top = i
+		a[i] = a[j]
+		i = j
+		j = 2*i+1
 	}
-	a[top] = temp
+	a[i] = temp
 }
