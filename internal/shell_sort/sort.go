@@ -2,8 +2,8 @@ package shell_sort
 
 // in-place
 // unstable
-// time: 最好O(n)，最坏O(n²)，
-//       平均值优于O(n²)，例如：O(n^1.3)，O(n^1.5)
+// time: 最差O(n²)，
+//       最优情况以及平均值都优于O(n²)，例如：O(n^1.3)，O(n^1.5)
 // space: O(1)
 func Sort(a []int) {
 	l := len(a)
@@ -11,8 +11,7 @@ func Sort(a []int) {
 		return
 	}
 	const N = 3
-	n := N
-	gap := l/n + 1
+	gap := l/N + 1
 	for {
 		for i := gap; i < l; i++ {
 			x := a[i]
@@ -26,7 +25,6 @@ func Sort(a []int) {
 		if gap == 1 {
 			break
 		}
-		n *= N
-		gap = l/n + 1
+		gap = gap/N + 1
 	}
 }

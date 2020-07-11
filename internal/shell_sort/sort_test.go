@@ -40,15 +40,20 @@ func TestSort(t *testing.T) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	{
-		const L = 50
-		a := make([]int, 0, L)
-		for i := 0; i < L; i++ {
+	for k := 1; k < 1000; k++ {
+		a := make([]int, 0, k)
+		for i := 0; i < k; i++ {
 			r := rand.Intn(99999)
 			a = append(a, r)
 		}
 		t.Logf("before, %v", a)
 		Sort(a)
 		t.Logf("after, %v", a)
+		for j := 0; j < len(a); j++ {
+			if j+1 < len(a) && a[j] > a[j+1] {
+				t.Errorf("failed, length=%d", len(a))
+				return
+			}
+		}
 	}
 }
