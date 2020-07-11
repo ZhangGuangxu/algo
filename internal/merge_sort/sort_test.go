@@ -196,7 +196,7 @@ func TestSort(t *testing.T) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	for l := 2; l < 9999; l++ {
+	for l := 1; l < 1000; l++ {
 		//t.Logf("length=%d", l)
 		a := make([]int, 0, l)
 		for i := 0; i < l; i++ {
