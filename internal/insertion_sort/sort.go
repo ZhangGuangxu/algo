@@ -2,7 +2,10 @@ package insertion_sort
 
 // in-place
 // stable
-// time: 最好O(n)，最坏O(n²)，平均O(n²)
+// time: 
+//   最优：O(n)
+//   最差：O(n²)
+//   平均：O(n²)
 // space: O(1)
 func Sort(a []int) {
     l := len(a)
