@@ -4,8 +4,8 @@ import "github.com/ZhangGuangxu/algo/internal/shell_sort"
 
 // 非稳定排序
 // 时间复杂度：
-//   最优：O(n^2)
-//   最差：O(nlogn)
+//   最差：O(n^2)
+//   最优：O(nlogn)
 //   平均：O(nlogn)
 // 空间复杂度：
 //   非递归部分：O(1)
@@ -28,7 +28,7 @@ func quickSort(a []int, low, high int) {
             low = pivotIndex+1
         }
     } else {
-        shell_sort.Sort(a[low:high+1]) 
+        shell_sort.Sort(a[low:high+1])
     }
 }
 
