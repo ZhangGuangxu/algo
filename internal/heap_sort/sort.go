@@ -13,15 +13,15 @@ func Sort(a []int) {
 		return
 	}
 	for i := l/2-1; i >= 0; i-- {
-		heapAdjust(a, i, l-1)
+		heapify(a, i, l-1)
 	}
 	for i := l-1; i > 0; i-- {
 		a[0], a[i] = a[i], a[0]
-		heapAdjust(a, 0, i-1)
+		heapify(a, 0, i-1)
 	}
 }
 
-func heapAdjust(a []int, s, e int) {
+func heapify(a []int, s, e int) {
 	temp := a[s]
 	i := s
 	j := 2*i+1
