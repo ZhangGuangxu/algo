@@ -4,7 +4,7 @@ import "github.com/ZhangGuangxu/algo/internal/shell_sort"
 
 // 非稳定排序
 // 时间复杂度：
-//   最差：O(n^2)
+//   最差：O(n²)
 //   最优：O(nlogn)
 //   平均：O(nlogn)
 // 空间复杂度：
